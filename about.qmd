@@ -2,8 +2,6 @@
 title: "About"
 ---
 
-About this site
-
-```{r}
-1 + 1
-```
+::: {.callout-note}
+All about this webpage!
+:::
