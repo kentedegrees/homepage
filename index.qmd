@@ -1,5 +1,8 @@
 ---
 title: "Thomas F Kent"
+image: images/tom_kent.jpg
+about:
+  template: jolla
 ---
 
 ::: {.callout-tip}
