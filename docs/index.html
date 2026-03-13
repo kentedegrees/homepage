@@ -68,11 +68,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -110,7 +139,16 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+  <ul>
+  <li><a href="#education" id="toc-education" class="nav-link active" data-scroll-target="#education">Education</a></li>
+  <li><a href="#work-experience" id="toc-work-experience" class="nav-link" data-scroll-target="#work-experience">Work Experience</a></li>
+  <li><a href="#publications" id="toc-publications" class="nav-link" data-scroll-target="#publications">Publications</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <div class="quarto-about-jolla">
   <img src="images/tom_kent.jpg" class="about-image
@@ -122,30 +160,50 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
   </div>
 </header><main class="content" id="quarto-document-content">
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>This is about me
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Lots of cool things about me.</p>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="768"></p>
-</figure>
-</div>
-</div>
-</div>
+
+<section id="education" class="level2">
+<h2 data-anchor-id="education">Education</h2>
+<ul>
+<li>2020 MS in Applied Statistics - Pennsylvania State University</li>
+<li>2005 PhD in Mathematics - University of Wisconsin - Madison</li>
+<li>1998 MS in Mathematics - University of Wisconsin - Madison</li>
+<li>1998 MS in Computer Science - University of Wisconsin - Madison</li>
+<li>1996 BS in Mathematics / Computer Science - Truman State University</li>
+</ul>
+</section>
+<section id="work-experience" class="level2">
+<h2 data-anchor-id="work-experience">Work Experience</h2>
+<ul>
+<li>2020 - Present: USDA, Center for Veterinary Biologics, Mathematical Statistician</li>
+<li>2017 - 2020, Pennsylvania State University, ….</li>
+<li>2008 - 2017: Marywood University, Dunmore PA, Department of Mathematics, Assistant Professor, Associate Professor, Tenured Professor, Department Chair, etc.</li>
+<li>2006 - 2008: University of Siena, Italy, European Union Marie Curie Fellow</li>
+<li>2005 - 2006: Brigham Young University, Department of Mathematics, Visiting Assistant Professor</li>
+</ul>
+</section>
+<section id="publications" class="level2">
+<h2 data-anchor-id="publications">Publications</h2>
+<ul>
+<li><em>Logic Paper 2</em>, with A.&nbsp;Sorbi</li>
+<li><em>Logic Paper 1</em>, with A.&nbsp;Sorbi</li>
+<li><em>Distributed Regression Analysis on Vertically Partitioned Data</em>, with Q.&nbsp;Her, Y.&nbsp;Samizo, A.&nbsp;Slavkovic, S.&nbsp;Toh, Y.&nbsp;Vilk, in preparation.</li>
+<li><em>Software for Distributed Regression Analysis on Vertically Partitioned Medical Data</em>, with Q.&nbsp;Her, Y.&nbsp;Samizo, A.&nbsp;Slavkovic, S.&nbsp;Toh, Y.&nbsp;Vilk, in preparation.</li>
+<li><em>Redesigning PopMedNet<span class="math inline">\(^{TM}\)</span> to Perform Distributed Regression Analysis with Vertically Partitioned Data</em>, with Q.&nbsp;Her, Y.&nbsp;Samizo, A.&nbsp;Slavkovic, S.&nbsp;Toh, Y.&nbsp;Vilk, in preparation.</li>
+<li><em>A Note on the Enumeration Degrees of 1-Generic Sets</em>, with L.&nbsp;Badillo, C.&nbsp;Bianchini, H.&nbsp;Ganchev, and A. Sorbi, accepted for publication in the Archive for Mathematical Logic, November, 2015.</li>
+<li><em>Empty Intervals of Enumeration Degrees</em>, with A.&nbsp;E.&nbsp;M.&nbsp;Lewis and A.&nbsp;Sorbi, in Annals of Pure and Applied Logic, Vol.&nbsp;163 (5), May 2012, pp.&nbsp;567–574.</li>
+<li><em>Interpreting True Arithmetic in the <span class="math inline">\(\Delta^0_2\)</span>-Enumeration Degrees</em>, the Journal of Symbolic Logic, Vol.&nbsp;75 (2), June 2010, pp.&nbsp;522–550.</li>
+<li><em>On the Degree Spectrum of a <span class="math inline">\(\Pi^0_1\)</span>-class</em>, with Andrew E.&nbsp;M.&nbsp;Lewis, in Transactions of the American Mathematical Society, Vol.&nbsp;362, May 2010, 5283–5319.</li>
+<li><em>Image Analysis and Fractal Geometry to Characterize Soil Desiccation Cracks</em>, with J.&nbsp;U.&nbsp;Baer and S.&nbsp;H.&nbsp;Anderson, in Geoderma, Vol.&nbsp;154, Nos.&nbsp;1–2, December 2009, pp.&nbsp;153–163</li>
+<li><em>The structure of the <span class="math inline">\(s\)</span>-degrees contained within a single e-degree</em>, in Annals of Pure and Applied Logic, Vol.&nbsp;160 (1), July 2009, pp.&nbsp;13–21.</li>
+<li><em>Branching in the <span class="math inline">\(\Sigma^0_2\)</span>-Enumeration Degrees: A New Perspective</em>, with Maria Affatato and Andrea Sorbi, Archive for Mathematical Logic, Vol.&nbsp;47 (3), July 2008, pp.&nbsp;221–231.</li>
+<li><em>Undecidability of Local Structures of <span class="math inline">\(s\)</span>-Degrees and <span class="math inline">\(Q\)</span>-Degrees</em>, with Maria Affatato and Andrea Sorbi, Tbilisi Mathematical Journal, Vol.&nbsp;1, 2008, pp.&nbsp;15–32.</li>
+<li><em><span class="math inline">\(s\)</span>-degrees within <span class="math inline">\(e\)</span>-degrees</em>, “Theory and Applications of Models of Computation, TAMC08, Proceedings”, Lecture Notes in Computer Science, Vol.&nbsp;4978, 2008, pp.&nbsp;579–587.</li>
+<li><em>Bounding Nonsplitting Enumeration Degrees</em>, with Andrea Sorbi, the Journal of Symbolic Logic, Vol.&nbsp;72 (4), December 2007, pp.&nbsp;1405–1417.</li>
+<li><em>The <span class="math inline">\(\Pi_3\)</span>-Theory of the <span class="math inline">\(\Sigma^0_2\)</span>-Enumeration Degrees is Undecidable</em>, the Journal of Symbolic Logic, Vol.&nbsp;71 (4), December 2006, pp.&nbsp;1284–1302.</li>
+</ul>
 
 
+</section>
 </main>  
 </div>
  <!-- /main -->
